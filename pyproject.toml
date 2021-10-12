@@ -82,7 +82,11 @@ covdiff = "covdiff.main:main"
 max-line-length = 88
 
 [tool.pylint.messages_control]
-disable = []
+disable = [
+    "fixme",
+    "invalid-name",
+    "missing-module-docstring"
+]
 
 [tool.pytest.ini_options]
 log_level = "DEBUG"
