@@ -56,10 +56,6 @@ tasks:
               branch: master
               all_passed: true
             secrets:
-              - type: env
-                secret: project/fuzzing/pypi-covdiff
-                name: PYPI_TOKEN
-                key: password
               - type: key
                 secret: project/fuzzing/deploy-covdiff
                 key: key
@@ -94,7 +90,6 @@ tasks:
           - queue:scheduler-id:taskcluster-github
           - secrets:get:project/fuzzing/codecov-covdiff
           - secrets:get:project/fuzzing/deploy-covdiff
-          - secrets:get:project/fuzzing/pypi-covdiff
         metadata:
           name: ${project_name} CI decision
           description: Schedule CI tasks for ${project_name}
