@@ -5,13 +5,13 @@ tasks:
   $let:
 
     project_name:
-      autobisect
+      covdiff
 
     matrix:
       language: python
       secrets:
         - type: env
-          secret: project/fuzzing/codecov-autobisect
+          secret: project/fuzzing/codecov-covdiff
           name: CODECOV_TOKEN
           key: token
       script:
@@ -48,7 +48,7 @@ tasks:
               - bash
               - '-xec'
               - >-
-                git config --global user.email "autobisect@mozilla.com";
+                git config --global user.email "covdiff@mozilla.com";
                 git config --global user.name "semantic-release";
                 git fetch origin master --tags;
                 tox -e release
@@ -57,11 +57,11 @@ tasks:
               all_passed: true
             secrets:
               - type: env
-                secret: project/fuzzing/pypi-autobisect
+                secret: project/fuzzing/pypi-covdiff
                 name: PYPI_TOKEN
                 key: password
               - type: key
-                secret: project/fuzzing/deploy-autobisect
+                secret: project/fuzzing/deploy-covdiff
                 key: key
 
   in:
@@ -92,9 +92,9 @@ tasks:
           - queue:create-task:highest:proj-fuzzing/ci
           - queue:create-task:highest:proj-fuzzing/ci-*
           - queue:scheduler-id:taskcluster-github
-          - secrets:get:project/fuzzing/codecov-autobisect
-          - secrets:get:project/fuzzing/deploy-autobisect
-          - secrets:get:project/fuzzing/pypi-autobisect
+          - secrets:get:project/fuzzing/codecov-covdiff
+          - secrets:get:project/fuzzing/deploy-covdiff
+          - secrets:get:project/fuzzing/pypi-covdiff
         metadata:
           name: ${project_name} CI decision
           description: Schedule CI tasks for ${project_name}
