@@ -2,6 +2,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 from pathlib import Path
+from typing import Dict, Any
 
 import pandas as pd
 
@@ -22,7 +23,7 @@ COL_ORDER = [
 ]
 
 
-def to_csv(data, dest: Path):
+def to_csv(data: Dict[str, Any], dest: Path) -> None:
     """Write data to CSV
     :param data: Data to be written.
     :param dest: Path to write file.
@@ -31,16 +32,18 @@ def to_csv(data, dest: Path):
     df.to_csv(dest, encoding="utf-8", columns=COL_ORDER)
 
 
-def to_excel(data, dest: Path):
+def to_excel(data: Dict[str, Any], dest: Path) -> None:
     """Write data to Excel
     :param data: Data to be written.
     :param dest: Path to write file.
     """
     df = pd.DataFrame.from_dict(data, orient="index")
 
+    # pylint: disable=abstract-class-instantiated
     with pd.ExcelWriter(path=dest, engine="xlsxwriter") as writer:
         df.to_excel(writer, index=False, columns=COL_ORDER)
 
+        # pylint: disable=no-member
         wb = writer.book
         ws = writer.sheets["Sheet1"]
 
