@@ -57,8 +57,8 @@ def parse_args() -> Namespace:
     """Argument parser"""
     parser = ArgumentParser(description="Compare two coverage reports")
     parser.add_argument("reports", type=Path, nargs=2, help="Reports to compare")
-    parser.add_argument("dest", type=Path, nargs="?", help="Path to store results")
-    parser.add_argument("-f", "--filter", type=Path, help="Path to filter list")
+    parser.add_argument("dest", type=Path, help="Path to store results")
+    parser.add_argument("-f", type=Path, help="Path to filter list", metavar="FILE")
     args = parser.parse_args()
 
     for report in args.reports:
