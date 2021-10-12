@@ -56,9 +56,9 @@ repository = "https://github.com/MozillaSecurity/covdiff"
 version = "1.0.0"
 
 [tool.poetry.dependencies]
-python = "^3.7.12"
 FuzzManager = "^0.4.1"
 XlsxWriter = "^3.0.1"
+python = "^3.7.12"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
