@@ -1,0 +1,40 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 21.6b0
+    hooks:
+      - id: black
+        language_version: python3
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.9.2
+    hooks:
+      - id: flake8
+  - repo: https://github.com/marco-c/taskcluster_yml_validator
+    rev: v0.0.7
+    hooks:
+      - id: taskcluster_yml
+  - repo: https://github.com/MozillaSecurity/orion
+    rev: v0.0.2
+    hooks:
+      - id: orion_ci
+  - repo: https://github.com/jorisroovers/gitlint
+    rev:  v0.15.1
+    hooks:
+      - id: gitlint
+        args: [--contrib=contrib-title-conventional-commits, --ignore=body-is-missing, --msg-filename]
+  - repo: https://github.com/pappasam/toml-sort
+    rev: v0.19.0
+    hooks:
+      - id: toml-sort
+        args: [--check, -a]
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: poetry run pylint -j 0 autobisect
+        pass_filenames: false
+        language: system
+      - id: mypy
+        name: mypy
+        entry: poetry run mypy autobisect
+        pass_filenames: false
+        language: system

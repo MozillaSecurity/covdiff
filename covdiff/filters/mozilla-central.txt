@@ -1,0 +1,70 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+# Automation, not part of the build
+-:build/**
+-:clang/**
+-:config/**
+-:devtools/**
+-:gcc/**
+-:hal/**
+-:testing/**
+-:tools/**
+-:python/**
+
+# All sorts of tests
+-:**/tests/**
+-:**/gtest/**
+-:**/test/**
+
+# JS code not part of the build
+-:js/src/gdb/**
+-:js/src/vtune/**
+-:js/src/ctypes/**
+-:js/src/shell/**
+-:js/src/jsapi-tests/**
+
+# Third-party code that is explicitly tested on OSS-Fuzz
+-:gfx/qcms/**
+-:gfx/ots/**
+-:gfx/harfbuzz/**
+#-:gfx/graphite2/**
+-:gfx/skia/**
+-:media/libaom/**
+-:media/libdav1d/**
+-:media/libjpeg/**
+-:media/libnestegg/**
+-:media/libopus/**
+-:media/libpng/**
+-:media/libtheora/**
+-:media/libvorbis/**
+-:media/libvpx/**
+-:media/libwebp/**
+-:media/webrtc/trunk/webrtc/modules/video_coding/codecs/h264/**
+-:modules/brotli/**
+-:modules/freetype2/**
+-:modules/woff2/**
+-:netwerk/srtp/**
+-:parser/expat/**
+-:third_party/aom/**
+-:third_party/dav1d/**
+-:third_party/sqlite3/**
+
+# Tested on ClusterFuzz for Chrome
+-:media/webrtc/trunk/webrtc/common_video/h264/**
+
+# Servo is temporarily excluded due to fluctuating rust coverage reports
+-:servo/**
+
+# Toplevel IPC generated files
+-:*.cpp
+-:*.c
+
+# Random junk
+-:NONE
+-:hb-ot-shape*
+-:lex.Pk11*
+-:ytab.c
+-:*.y
+-:*.l
+-:<* macros>

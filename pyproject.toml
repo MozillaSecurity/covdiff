@@ -1,0 +1,95 @@
+[build-system]
+build-backend = "poetry.masonry.api"
+requires = ["poetry>=1.0.5"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+]
+
+[tool.coverage.run]
+omit = [
+    "*/setup.py",
+    "*/tests/*",
+    "*/build/*",
+    "*/dist/*",
+    "*/.tox/*",
+    "*/.egg/*",
+]
+
+[tool.isort]
+force_sort_within_sections = false
+known_first_party = "covdiff"
+profile = "black"
+
+[tool.mypy]
+exclude = "^.*tests.*$"
+ignore_missing_imports = "True"
+implicit_reexport = "True"
+strict = "True"
+
+[tool.poetry]
+authors = [
+    "Jason Kratzer <jkratzer@mozilla.com>"
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Security",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+]
+description = "Compare coverage repors"
+homepage = "https://github.com/MozillaSecurity/covdiff"
+include = ["tests/**"]
+keywords = ["coverage", "diff", "delta"]
+license = "MPL-2.0"
+maintainers = [
+    "Mozilla Fuzzing Team <fuzzing@mozilla.com>"
+]
+name = "covdiff"
+readme = "README.md"
+repository = "https://github.com/MozillaSecurity/covdiff"
+version = "1.0.0"
+
+[tool.poetry.dependencies]
+python = "^3.7.12"
+FuzzManager = "^0.4.1"
+XlsxWriter = "^3.0.1"
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+codecov = "^2.1.11"
+coverage = { extras = ["toml"], version = "^5.1" }
+flake8 = "^3.7.9"
+flake8-isort = "^4.0.0"
+flake8-quotes = "^2.1.1"
+gitlint = "^0.15.1"
+mypy = "v0.902"
+pre-commit = "^2.13.0"
+pylint = "^2.4.4"
+pytest = "^5.3.5"
+toml-sort = "^0.19.0"
+tox = "^3.14.5"
+
+[tool.poetry.scripts]
+covdiff = "covdiff.main:main"
+
+[tool.pylint.format]
+max-line-length = 88
+
+[tool.pylint.messages_control]
+disable = []
+
+[tool.pytest.ini_options]
+log_level = "DEBUG"
+
+[tool.semantic_release]
+build_command = "pip install poetry && poetry build"
+commit_subject = "chore(release): {version} [skip ci]"
+upload_to_pypi = true
+upload_to_release = false
+version_toml = "pyproject.toml:tool.poetry.version"
