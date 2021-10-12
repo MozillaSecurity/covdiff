@@ -13,7 +13,9 @@ from FTB import CoverageHelper
 DIFF_KEYS = ("coveragePercent", "linesCovered", "linesMissed", "linesTotal")
 
 
-def compare(report1: Dict[str, any], report2: Dict[str, any], exclude: List[str] = None):
+def compare(
+    report1: Dict[str, any], report2: Dict[str, any], exclude: List[str] = None
+):
     """
     Compare coverage reports and record differences in line covered vs missed.
     :param report1: First coverage report.
