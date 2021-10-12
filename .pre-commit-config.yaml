@@ -30,11 +30,11 @@ repos:
     hooks:
       - id: pylint
         name: pylint
-        entry: poetry run pylint -j 0 autobisect
+        entry: poetry run pylint -j 0 covdiff
         pass_filenames: false
         language: system
       - id: mypy
         name: mypy
-        entry: poetry run mypy autobisect
+        entry: poetry run mypy covdiff
         pass_filenames: false
         language: system
