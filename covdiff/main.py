@@ -54,7 +54,6 @@ def compare(
             results[path][f"{cased} (a)"] = a[key]  # type: ignore
             results[path][f"{cased} (b)"] = b[key]  # type: ignore
             if key == "coveragePercent":
-                # pylint: disable-next-line line-too-long
                 results[path][f"{cased} (delta)"] = round(
                     a[key] - b[key], 2  # type: ignore
                 )
