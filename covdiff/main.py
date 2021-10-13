@@ -5,9 +5,10 @@ import json
 import re
 from argparse import ArgumentParser, Namespace
 from pathlib import Path
-from typing import Optional, Dict, List, TypedDict, Any
+from typing import Optional, Dict, List, Any
 
 from FTB import CoverageHelper
+from typing_extensions import TypedDict
 
 from covdiff import writers
 
