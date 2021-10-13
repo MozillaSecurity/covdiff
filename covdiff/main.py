@@ -5,7 +5,7 @@ import json
 import re
 from argparse import ArgumentParser, Namespace
 from pathlib import Path
-from typing import Optional, Dict, List, Union, TypedDict, Any
+from typing import Optional, Dict, List, TypedDict, Any
 
 from FTB import CoverageHelper
 
@@ -34,7 +34,7 @@ def compare(
     report1: CovReport,
     report2: CovReport,
     exclude: Optional[List[str]] = None,
-) -> Dict[str, Union[str, int]]:
+) -> Dict[str, Any]:
     """
     Compare coverage reports and record differences in line covered vs missed.
     :param report1: First coverage report.
