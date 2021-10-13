@@ -52,7 +52,7 @@ tasks:
                 git fetch origin master --tags;
                 tox -e release
             when:
-              branch: master
+              branch: main
               all_passed: true
 
   in:
