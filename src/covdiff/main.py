@@ -98,10 +98,13 @@ def parse_args() -> Namespace:
     return args
 
 
-def main(args: Namespace) -> int:
+def main(args: Optional[Namespace] = None) -> int:
     """Compare coverage reports
     :param args:
     """
+
+    if args is None:
+        args = parse_args()
 
     reports = []
     for report in args.reports:
