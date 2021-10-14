@@ -30,11 +30,11 @@ repos:
     hooks:
       - id: pylint
         name: pylint
-        entry: poetry run pylint covdiff
+        entry: poetry run pylint src
         pass_filenames: false
         language: system
       - id: mypy
         name: mypy
-        entry: poetry run mypy covdiff
+        entry: poetry run mypy src
         pass_filenames: false
         language: system
