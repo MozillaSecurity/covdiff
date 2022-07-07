@@ -65,7 +65,7 @@ typing-extensions = "^3.10.0"
 mypy = "v0.902"
 pre-commit = "^2.13.0"
 pylint = "^2.4.4"
-pytest = "^5.3.5"
+pytest = "^7.1.2"
 tox = "^3.14.5"
 
 [tool.poetry.scripts]
