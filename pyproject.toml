@@ -66,7 +66,7 @@ mypy = "v0.902"
 pre-commit = "^2.13.0"
 pylint = "^2.4.4"
 pytest = "^5.3.5"
-tox = "^3.14.5"
+tox = "^3.25.1"
 
 [tool.poetry.scripts]
 covdiff = "covdiff.main:main"
