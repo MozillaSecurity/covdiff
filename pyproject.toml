@@ -52,7 +52,7 @@ maintainers = [
 name = "covdiff"
 readme = "README.md"
 repository = "https://github.com/MozillaSecurity/covdiff"
-version = "1.0.0"
+version = "0.0.0"
 
 [tool.poetry.dependencies]
 FuzzManager = "^0.5.1"
