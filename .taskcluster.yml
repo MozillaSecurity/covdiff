@@ -53,7 +53,7 @@ tasks:
               - >-
                 git config --global user.email "covdiff@mozilla.com";
                 git config --global user.name "semantic-release";
-                git fetch origin master --tags;
+                git fetch origin main --tags;
                 tox -e release
             when:
               branch: main
