@@ -300,20 +300,15 @@ flake8 = "*"
 
 [[package]]
 name = "fuzzmanager"
-version = "0.4.3"
+version = "0.5.1"
 description = "A fuzzing management tools collection"
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.7"
 
 [package.dependencies]
 fasteners = ">=0.14.1"
 requests = ">=2.20.1"
-six = ">=1.12.0"
-
-[package.extras]
-dev = ["tox (>=3.2)"]
-test = ["boto3", "celery", "django", "django-chartjs", "djangorestframework", "laniakea", "pytest", "pytest-cov", "pytest-django", "pytest-flake8", "pytest-mock", "pytest-pythonpath", "pyyaml", "redis"]
 
 [[package]]
 name = "gitdb"
@@ -1252,7 +1247,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7.12"
-content-hash = "eca38cc8dde4c69938f34382da7bbcd4cb4563f853fb291efe1319ddd720a1e0"
+content-hash = "07030b5b2fc698ba1b84de9cc3b4b4c70ccb6823f76940534f852b5eb4519968"
 
 [metadata.files]
 arrow = [
@@ -1496,7 +1491,10 @@ flake8-isort = [
 flake8-quotes = [
     {file = "flake8-quotes-3.3.1.tar.gz", hash = "sha256:633adca6fb8a08131536af0d750b44d6985b9aba46f498871e21588c3e6f525a"},
 ]
-fuzzmanager = []
+fuzzmanager = [
+    {file = "FuzzManager-0.5.1-py3-none-any.whl", hash = "sha256:d78956d8b0a51c8066359508d6079cb5be9ca5626f49382f27a694026bee272c"},
+    {file = "FuzzManager-0.5.1.tar.gz", hash = "sha256:c275675a4037cde4ca59bd4c0383fe2155cbb12ae65153d41569f403bfe0a36f"},
+]
 gitdb = [
     {file = "gitdb-4.0.9-py3-none-any.whl", hash = "sha256:8033ad4e853066ba6ca92050b9df2f89301b8fc8bf7e9324d412a63f8bf1a8fd"},
     {file = "gitdb-4.0.9.tar.gz", hash = "sha256:bac2fd45c0a1c9cf619e63a90d62bdc63892ef92387424b855792a6cabe789aa"},
