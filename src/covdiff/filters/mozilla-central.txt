@@ -68,3 +68,15 @@
 -:*.y
 -:*.l
 -:<* macros>
+
+# Cranelift is currently disabled
+-:js/src/wasm/cranelift/**
+
+# Random junk
+-:NONE
+-:hb-ot-shape*
+-:lex.Pk11*
+-:ytab.c
+-:*.y
+-:*.l
+-:<* macros>
