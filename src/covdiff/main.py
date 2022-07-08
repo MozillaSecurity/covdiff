@@ -5,12 +5,12 @@ import json
 import re
 from argparse import ArgumentParser, Namespace
 from pathlib import Path
-from typing import Optional, Dict, List, Any
+from typing import Optional, Dict, List, Any, Union
 
 from FTB import CoverageHelper
 from typing_extensions import TypedDict
 
-from covdiff import writers
+from . import writers
 
 DIFF_KEYS = ("coveragePercent", "linesCovered", "linesMissed", "linesTotal")
 
@@ -29,6 +29,7 @@ class CovReport(_CovReportBase, total=False):
     """Coverage report class with recursive, optional properties"""
 
     children: _CovReportBase
+    coverage: List[int]
 
 
 def compare(
@@ -43,7 +44,8 @@ def compare(
     :param exclude: List of exclusion directives.
     """
 
-    def _walk(a: CovReport, b: CovReport, path: str) -> None:
+    def _walk(a: CovReport, b: CovReport, path: str) -> Union[int, None]:
+        # pylint: disable=too-many-branches
         if a["name"] is not None:
             path = str(Path(path) / Path(a["name"]))
 
@@ -62,10 +64,33 @@ def compare(
                 results[path][f"{cased} (delta)"] = a[key] - b[key]  # type: ignore
 
         # ToDo: Parse 'b' keys that don't exist in 'a'
-        if "children" in a.keys() and "children" in b.keys():
-            for key in sorted(a["children"].keys()):
-                if key in b["children"].keys():
-                    _walk(a["children"][key], b["children"][key], path)  # type: ignore
+        common_lines = 0
+        if "children" in a and "children" in b:
+            for key in sorted(a["children"]):
+                if key in b["children"]:
+                    # pylint: disable=line-too-long
+                    count = _walk(a["children"][key], b["children"][key], path)  # type: ignore
+                    if count is not None:
+                        common_lines += count
+        else:
+            if len(a["coverage"]) == len(b["coverage"]):
+                for a_cov, b_cov in zip(a["coverage"], b["coverage"]):
+                    if a_cov != -1 and b_cov != -1:
+                        common_lines += 1
+            else:
+                results[path]["Common Lines"] = "N/A"
+                results[path]["Windows Only"] = "N/A"
+                return None
+
+        results[path]["Common Lines"] = common_lines
+        try:
+            results[path]["Windows Only Percent"] = round(
+                (a["linesTotal"] - common_lines) / a["linesTotal"] * 100, 2
+            )
+        except ZeroDivisionError:
+            results[path]["Windows Only Percent"] = 0
+
+        return common_lines
 
     # Apply filters to both reports
     if exclude is not None:

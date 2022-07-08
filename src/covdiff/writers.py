@@ -20,6 +20,8 @@ COL_ORDER = [
     "Lines Total (delta)",
     "Lines Total (a)",
     "Lines Total (b)",
+    "Common Lines",
+    "Windows Only Percent",
 ]
 
 
