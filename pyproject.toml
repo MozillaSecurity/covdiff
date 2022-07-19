@@ -64,6 +64,7 @@ google-cloud-storage = "^2.4.0"
 pandas = "^1.3.3"
 python = "^3.7.12"
 typing-extensions = "^3.10.0"
+zstandard = "^0.18.0"
 
 [tool.poetry.dev-dependencies]
 black = "^22.1.0"
@@ -89,6 +90,7 @@ tox = "^3.24.5"
 
 [tool.poetry.scripts]
 covdiff = "covdiff.main:main"
+foo = "covdiff.fetch:parse_args"
 
 [tool.pylint.format]
 max-line-length = 88
