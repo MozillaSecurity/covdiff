@@ -63,6 +63,8 @@ google-auth-oauthlib = "^0.5.2"
 google-cloud-storage = "^2.4.0"
 pandas = "^1.3.3"
 python = "^3.7.12"
+six = "^1.16.0"
+types-six = "^1.16.18"
 typing-extensions = "^3.10.0"
 zstandard = "^0.18.0"
 
