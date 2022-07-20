@@ -60,7 +60,7 @@ class MozCovFetcher:
         if not blob.exists():
             raise BucketException(f"No report found on GCP at {gcp_path}")
 
-        with open(dest, "wb", encoding="UTF-8") as output:
+        with open(dest, "wb") as output:
             with NamedTemporaryFile(suffix=".json.zstd") as report_path:
                 blob.download_to_filename(report_path.name)
                 LOG.info(f"Downloaded report archive {gcp_path}")
