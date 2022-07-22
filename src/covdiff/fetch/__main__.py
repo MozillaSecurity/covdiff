@@ -3,6 +3,6 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 import sys
 
-from .main import main, parse_args
+from .fetch import main, parse_args
 
 sys.exit(main(parse_args()))
