@@ -1494,7 +1494,7 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7.12"
-content-hash = "589a0d1c7b6779b16a0cd82102812a597744c42073870008ace982fc292b62a6"
+content-hash = "85333b585b998972ffa0668135efef4452dedc8bc323d2c8e703d1875d1ca91f"
 
 [metadata.files]
 arrow = [
