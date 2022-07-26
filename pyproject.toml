@@ -52,7 +52,7 @@ maintainers = [
 name = "covdiff"
 readme = "README.md"
 repository = "https://github.com/MozillaSecurity/covdiff"
-version = "0.0.0"
+version = "0.1.0"
 
 [tool.poetry.dependencies]
 FuzzManager = "^0.5.1"
@@ -84,7 +84,7 @@ pytest-cov = "^3.0.0"
 pytest-flake8 = "^1.0.7"
 pytest-mock = "^3.6.0"
 pytest-pylint = "^0.18.0"
-python-semantic-release = "7.28.1"
+python-semantic-release = "7.30.2"
 taskcluster-yml-validator = "^0.0.9"
 toml = "^0.10.2"
 toml-sort = "^0.20.0"
@@ -110,6 +110,7 @@ disable = [
 log_level = "DEBUG"
 
 [tool.semantic_release]
+branch = "main"
 build_command = "pip install poetry && poetry build"
 commit_subject = "chore(release): {version} [skip ci]"
 upload_to_pypi = false
