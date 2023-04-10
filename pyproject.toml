@@ -57,7 +57,7 @@ version = "0.1.0"
 [tool.poetry.dependencies]
 FuzzManager = "^0.5.1"
 XlsxWriter = "^3.0.1"
-google-api-python-client = "^2.55.0"
+google-api-python-client = "^2.84.0"
 google-auth-httplib2 = "^0.1.0"
 google-auth-oauthlib = "^0.5.2"
 google-cloud-storage = "^2.5.0"
